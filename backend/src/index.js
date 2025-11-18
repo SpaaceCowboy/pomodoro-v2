@@ -7,7 +7,11 @@ const authRoutes = require('./routes/authRoutes'); // New
 
 dotenv.config();
 const app = express();
-app.use(cors({ origin: 'http://localhost:3000', credentials: true })); // Allow frontend
+app.use(cors({ origin: [
+  'http://localhost:3000',
+  'https://pomodoro-v2-eta.vercel.app/'
+]
+  , credentials: true })); // Allow frontend
 app.use(express.json());
 
 mongoose.connect('mongodb://localhost:27017/focusdb', { useNewUrlParser: true, useUnifiedTopology: true })
